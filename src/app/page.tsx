@@ -16,7 +16,11 @@ export default function Home() {
     setTodo([input, ...todo]);
     setInput("");
   }
-
+  function deleteTodo(index: number) {
+    const updatedTodo = todo.filter((_, i) => i != index);
+    setTodo(updatedTodo);
+    console.log(updatedTodo);
+  }
 
   return (
     <div className="h-screen w-screen flex items-center justify-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
@@ -29,6 +33,7 @@ export default function Home() {
               <FcTodoList />
             </CardTitle>
           </CardHeader>
+
           {/* Input */}
           <CardContent>
             <form onSubmit={addTodo} className="flex items-center">
@@ -61,7 +66,7 @@ export default function Home() {
                     {item}
                   </label>
                   <div className="cursor-pointer p-3 ml-80">
-                    <ImCross className=" text-sm" />
+                    <ImCross className=" text-sm" onClick={() => deleteTodo(index)} />
                   </div>
                 </div>
               ))}
