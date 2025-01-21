@@ -11,11 +11,13 @@ export default function Home() {
   const [todo, setTodo] = useState<string[]>([]);
   const [input, setInput] = useState("");
 
-  function addTodo() {
+  function addTodo(e: React.FormEvent) {
+    e.preventDefault();
     setTodo([input, ...todo]);
     setInput("");
-    console.log(todo);
   }
+
+
   return (
     <div className="h-screen w-screen flex items-center justify-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
       <div>
@@ -29,7 +31,7 @@ export default function Home() {
           </CardHeader>
           {/* Input */}
           <CardContent>
-            <div className="flex items-center">
+            <form onSubmit={addTodo} className="flex items-center">
               <Input
                 type="text"
                 placeholder="Add your task"
@@ -40,13 +42,12 @@ export default function Home() {
                 }}
               />
               <Button
-                onClick={addTodo}
                 variant="destructive"
                 className="rounded-r-full h-12 w-20"
               >
                 Add
               </Button>
-            </div>
+            </form>
 
             {/* Data */}
             <div>
