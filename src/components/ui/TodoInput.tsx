@@ -1,14 +1,15 @@
-import React, { Dispatch, SetStateAction, useState } from "react";
-import { Input } from "./input";
+import { useTodoStore } from "@/store/todoState";
+import React, { useState } from "react";
 import { Button } from "./button";
-import { todos } from "@/app/page";
+import { Input } from "./input";
 
-function TodoInput({setTodo}:{setTodo:Dispatch<SetStateAction<todos[]>>}) {
+function TodoInput() {
+  const { addTodo: add } = useTodoStore();
   const [input, setInput] = useState("");
 
   function addTodo(e: React.FormEvent) {
     e.preventDefault();
-    setTodo((todo)=>[{ title: input, id: Math.random() * 1000, check: false }, ...todo,]);
+    add({ title: input, id: Math.random() * 1000, check: false });
     setInput("");
   }
 
