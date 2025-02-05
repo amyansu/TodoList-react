@@ -21,18 +21,19 @@ function TodoCard({ item }: { item: todos }) {
     const data = await res.json();
     handleCheckBox(data.id);
   }
-
+console.log(item.checkbox)
   return (
     <div className="flex justify-between items-center mt-7  w-full">
       <div>
         <Checkbox
           className="rounded-full"
           onCheckedChange={() => CheckBox(item._id)}
+          checked={item.checkbox}
         />
         <label
           htmlFor="terms"
           className={`text-xl ml-2 p-2 overflow-y-scroll ${
-            item.check && "line-through"
+            item.checkbox ?"line-through":""
           }`}
         >
           {item.title}

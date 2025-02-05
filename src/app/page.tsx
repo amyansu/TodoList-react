@@ -8,7 +8,7 @@ import { FcTodoList } from "react-icons/fc";
 export interface todos {
   title: string;
   _id: string;
-  check: boolean;
+  checkbox: boolean;
 }
 
 export default function Home() {

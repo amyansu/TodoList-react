@@ -18,7 +18,7 @@ export const useTodoStore = create<TodoState>((set) => ({
     deleteTodo: (id: string) => set((state) => ({ todos: state.todos.filter((item) => item._id !== id) })),
     handleCheckBox: (id: string) => set((state) => ({
         todos: state.todos.map((item) => {
-            return item._id !== id ? item : { ...item, check: !item.check };
+            return item._id !== id ? item : { ...item, checkbox: !item.checkbox };
         })
     }))
 }));
