@@ -1,9 +1,8 @@
 "use client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import List2 from "@/components/ui/List";
+import List from "@/components/ui/List";
 import Title from "@/components/ui/Title";
 import TodoInput from "@/components/ui/TodoInput";
-import { useEffect } from "react";
 import { FcTodoList } from "react-icons/fc";
 
 export interface todos {
@@ -26,7 +25,7 @@ export default function Home() {
           </CardHeader>
           <CardContent>
             <TodoInput />
-            <List2 />
+            <List />
           </CardContent>
         </Card>
       </div>
