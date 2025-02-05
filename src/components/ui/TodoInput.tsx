@@ -4,12 +4,13 @@ import { Button } from "./button";
 import { Input } from "./input";
 
 function TodoInput() {
-  const { addTodo: add } = useTodoStore();
+  const add = useTodoStore((state) => state.addTodo);
   const [input, setInput] = useState("");
 
   async function addTodo(e: React.FormEvent) {
     e.preventDefault();
-    const res = await fetch("http://localhost:3000/add", {
+    if (input.length == 0) return;
+    const res = await fetch("http://localhost:3001/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

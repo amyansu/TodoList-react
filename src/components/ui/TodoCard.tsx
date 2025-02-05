@@ -7,16 +7,16 @@ function TodoCard({ item }: { item: todos }) {
   const { deleteTodo, handleCheckBox } = useTodoStore();
 
   async function Delete(id: string) {
-    const res = await fetch(`http://localhost:3000/delete/${id}`, {
-      method: "DELETE"
+    const res = await fetch(`http://localhost:3001/delete/${id}`, {
+      method: "DELETE",
     });
     const data = await res.json();
-    deleteTodo(data.id)
+    deleteTodo(data.id);
   }
 
   async function CheckBox(id: string) {
-    const res = await fetch(`http://localhost:3000/checkbox/${id}`, {
-      method: "PUT"
+    const res = await fetch(`http://localhost:3001/checkbox/${id}`, {
+      method: "PUT",
     });
     const data = await res.json();
     handleCheckBox(data.id);
