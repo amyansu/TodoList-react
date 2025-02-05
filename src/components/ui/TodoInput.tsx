@@ -7,9 +7,17 @@ function TodoInput() {
   const { addTodo: add } = useTodoStore();
   const [input, setInput] = useState("");
 
-  function addTodo(e: React.FormEvent) {
+  async function addTodo(e: React.FormEvent) {
     e.preventDefault();
-    add({ title: input, id: Math.random() * 1000, check: false });
+    const res = await fetch("http://localhost:3000/add", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ title: input }),
+    });
+    const data = await res.json();
+    add(data.todo);
     setInput("");
   }
 

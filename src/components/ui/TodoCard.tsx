@@ -6,12 +6,28 @@ import { useTodoStore } from "@/store/todoState";
 function TodoCard({ item }: { item: todos }) {
   const { deleteTodo, handleCheckBox } = useTodoStore();
 
+  async function Delete(id: string) {
+    const res = await fetch(`http://localhost:3000/delete/${id}`, {
+      method: "DELETE"
+    });
+    const data = await res.json();
+    deleteTodo(data.id)
+  }
+
+  async function CheckBox(id: string) {
+    const res = await fetch(`http://localhost:3000/checkbox/${id}`, {
+      method: "PUT"
+    });
+    const data = await res.json();
+    handleCheckBox(data.id);
+  }
+
   return (
     <div className="flex justify-between items-center mt-7  w-full">
       <div>
         <Checkbox
           className="rounded-full"
-          onCheckedChange={() => handleCheckBox(item.id)}
+          onCheckedChange={() => CheckBox(item._id)}
         />
         <label
           htmlFor="terms"
@@ -23,7 +39,7 @@ function TodoCard({ item }: { item: todos }) {
         </label>
       </div>
       <div className="cursor-pointer p-3">
-        <ImCross className=" text-sm" onClick={() => deleteTodo(item.id)} />
+        <ImCross className=" text-sm" onClick={() => Delete(item._id)} />
       </div>
     </div>
   );

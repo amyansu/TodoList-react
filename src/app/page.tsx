@@ -1,17 +1,19 @@
 "use client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import List2 from "@/components/ui/list2";
+import List2 from "@/components/ui/List";
 import Title from "@/components/ui/Title";
 import TodoInput from "@/components/ui/TodoInput";
+import { useEffect } from "react";
 import { FcTodoList } from "react-icons/fc";
 
 export interface todos {
   title: string;
-  id: number;
+  _id: string;
   check: boolean;
 }
 
 export default function Home() {
+  
   return (
     <div className="h-screen w-screen flex items-center justify-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
       <div>
