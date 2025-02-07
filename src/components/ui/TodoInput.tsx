@@ -18,7 +18,7 @@ function TodoInput() {
       body: JSON.stringify({ title: input }),
     });
     const data = await res.json();
-    add(data.todo);
+    add(data.todo[0]);
     setInput("");
   }
 

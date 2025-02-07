@@ -7,7 +7,7 @@ import { FcTodoList } from "react-icons/fc";
 
 export interface todos {
   title: string;
-  _id: string;
+  id: number;
   checkbox: boolean;
 }
 

@@ -16,7 +16,7 @@ export default function List() {
   return (
     <div className="mt-5 max-h-80 overflow-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
       {todos.map((item) => (
-        <TodoCard key={item._id} item={item} />
+        <TodoCard key={item.id} item={item} />
       ))}
     </div>
   );
