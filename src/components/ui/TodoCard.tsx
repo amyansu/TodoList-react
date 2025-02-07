@@ -15,7 +15,7 @@ function TodoCard({ item }: { item: todos }) {
   }
 
   async function CheckBox(id: number) {
-    const res = await fetch(`http://localhost:3001/checkbox/${id}`, {
+    const res = await fetch(`http://localhost:3001/checkbox/${id}?checkbox=${!item.checkbox}`, {
       method: "PUT",
     });
     const data = await res.json();
