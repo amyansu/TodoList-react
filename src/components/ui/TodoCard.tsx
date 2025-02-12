@@ -2,6 +2,7 @@ import { todos } from "@/app/page";
 import { ImCross } from "react-icons/im";
 import { Checkbox } from "./checkbox";
 import { useTodoStore } from "@/store/todoState";
+import { checkbox } from "@/app/action/checkbox";
 
 function TodoCard({ item }: { item: todos }) {
   const { deleteTodo, handleCheckBox } = useTodoStore();
@@ -15,11 +16,12 @@ function TodoCard({ item }: { item: todos }) {
   }
 
   async function CheckBox(id: number) {
-    const res = await fetch(`http://localhost:3000/api/todo/${id}?checkbox=${!item.checkbox}`, {
-      method: "PUT",
-    });
-    const data = await res.json();
-    handleCheckBox(data.id);
+    // const res = await fetch(`http://localhost:3000/api/todo/${id}?checkbox=${!item.checkbox}`, {
+    //   method: "PUT",
+    // });
+    // const data = await res.json();
+    const todoId = await checkbox(id, item.checkbox)
+    handleCheckBox(todoId);
   }
   
   return (
