@@ -3,7 +3,7 @@ import { todosTable } from "@/db/schema";
 import { desc, eq } from "drizzle-orm";
 import { NextRequest } from "next/server";
 
-export async function GET(request: NextRequest) {
+export async function GET() {
     const todo = await db.select().from(todosTable).orderBy(desc(todosTable.id));
     return Response.json({ todo: todo });
 };

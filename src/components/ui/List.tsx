@@ -6,6 +6,7 @@ export default function List() {
   const { todos, setTodo } = useTodoStore();
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     fetch("http://localhost:3000/api/todo").then((response) => {
       response.json().then((data) => {
         setTodo(data.todo);

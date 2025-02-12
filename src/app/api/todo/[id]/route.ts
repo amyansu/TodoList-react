@@ -1,6 +1,6 @@
 import { db } from "@/db";
 import { todosTable } from "@/db/schema";
-import { desc, eq } from "drizzle-orm";
+import { eq } from "drizzle-orm";
 import { NextRequest } from "next/server";
 
 
