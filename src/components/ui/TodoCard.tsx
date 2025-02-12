@@ -8,7 +8,7 @@ function TodoCard({ item }: { item: todos }) {
   const { deleteTodo, handleCheckBox } = useTodoStore();
 
   async function Delete(id: number) {
-    const res = await fetch(`http://localhost:3000/api/todo/${id}`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/todo/${id}`, {
       method: "DELETE",
     });
     const data = await res.json();

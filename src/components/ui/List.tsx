@@ -7,7 +7,7 @@ export default function List() {
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    fetch("http://localhost:3000/api/todo").then((response) => {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/todo`).then((response) => {
       response.json().then((data) => {
         setTodo(data.todo);
       });
