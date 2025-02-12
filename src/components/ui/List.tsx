@@ -6,7 +6,7 @@ export default function List() {
   const { todos, setTodo } = useTodoStore();
 
   useEffect(() => {
-    fetch("http://localhost:3001/todos").then((response) => {
+    fetch("http://localhost:3000/api/todo").then((response) => {
       response.json().then((data) => {
         setTodo(data.todo);
       });

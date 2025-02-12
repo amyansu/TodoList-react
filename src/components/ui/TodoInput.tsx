@@ -10,7 +10,7 @@ function TodoInput() {
   async function addTodo(e: React.FormEvent) {
     e.preventDefault();
     if (input.length == 0) return;
-    const res = await fetch("http://localhost:3001/add", {
+    const res = await fetch("http://localhost:3000/api/todo", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
