@@ -27,7 +27,7 @@ function TodoInput() {
       <Input
         type="text"
         placeholder="Add your task"
-        className="rounded-l-full h-12 w-96"
+        className="rounded-l-full h-12 w-full"
         value={input}
         onChange={(e) => {
           setInput(e.target.value);
